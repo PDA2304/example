@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -34,11 +36,23 @@ class TextFieldCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(backgroundColor: Colors.black.withOpacity(0.2)),
       body: Container(
         alignment: Alignment.center,
         margin: EdgeInsets.all(20),
         child: Column(mainAxisSize: MainAxisSize.min, children: [
           CustomButton("asdasd", () {}),
+          Container(
+            padding: EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: Colors.amber,
+              shape: BoxShape.circle,
+            ),
+            clipBehavior: Clip.antiAlias,
+            child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+                child: const Icon(Icons.abc, size: 60)),
+          ),
           TextField(
             // maxLength: 10,
 
